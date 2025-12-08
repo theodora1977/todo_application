@@ -14,7 +14,7 @@ def send_otp_email(to_email: str, otp_code: str) -> None:
     """
     smtp_host = "smtp.gmail.com"  # Default to Gmail SMTP
     smtp_port = 465          # Default to Gmail SMTP port
-    smtp_user = "example@gmail.com"
+    smtp_user = os.getenv("SMTP_USER")
     smtp_password = os.getenv("SMTP_PASSWORD")
     smtp_from = os.getenv("SMTP_FROM")
 

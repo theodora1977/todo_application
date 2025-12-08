@@ -1,4 +1,6 @@
 from fastapi import FastAPI, Request, Depends, HTTPException, status
+from dotenv import load_dotenv
+load_dotenv()  # loads .env from project root into os.environ
 from sqlalchemy.orm import Session
 from passlib.context import CryptContext
 import random
