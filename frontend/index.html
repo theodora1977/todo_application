@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App - Modern Task Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">✓ TodoFlow</h1>
+            <div class="nav-links">
+                <button id="navHome" class="nav-link active">Home</button>
+                <button id="navTasks" class="nav-link">Tasks</button>
+                <button id="logout" class="nav-link logout-btn" style="display:none;">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Auth Screen -->
+    <div id="authScreen" class="screen">
+        <div class="auth-container">
+            <div class="auth-card">
+                <h2>Welcome to TodoFlow</h2>
+                <p class="subtitle">Manage your tasks beautifully</p>
+                
+                <div class="auth-tabs">
+                    <button id="loginTab" class="tab-btn active">Sign In</button>
+                    <button id="signupTab" class="tab-btn">Sign Up</button>
+                </div>
+
+                <!-- Login Form -->
+                <div id="loginForm" class="auth-form">
+                    <input type="email" id="loginEmail" placeholder="Email address" class="input">
+                    <input type="password" id="loginPassword" placeholder="Password" class="input">
+                    <button id="loginBtn" class="btn btn-primary">Sign In</button>
+                    <p class="form-message" id="loginMessage"></p>
+                </div>
+
+                <!-- Signup Form -->
+                <div id="signupForm" class="auth-form" style="display:none;">
+                    <input type="text" id="signupFirstName" placeholder="First Name" class="input">
+                    <input type="text" id="signupLastName" placeholder="Last Name" class="input">
+                    <input type="email" id="signupEmail" placeholder="Email address" class="input">
+                    <input type="password" id="signupPassword" placeholder="Password" class="input">
+                    <button id="signupBtn" class="btn btn-primary">Create Account</button>
+                    <p class="form-message" id="signupMessage"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App Screen -->
+    <div id="appScreen" class="screen" style="display:none;">
+        <div class="app-container">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="user-profile">
+                    <div class="avatar">👤</div>
+                    <div>
+                        <p class="user-name" id="displayName">User</p>
+                        <p class="user-email" id="displayEmail">user@example.com</p>
+                    </div>
+                </div>
+                <div class="stats">
+                    <div class="stat-card">
+                        <p class="stat-value" id="totalTasks">0</p>
+                        <p class="stat-label">Total Tasks</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-value" id="completedCount">0</p>
+                        <p class="stat-label">Completed</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-value" id="pendingCount">0</p>
+                        <p class="stat-label">Pending</p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Create Task Section -->
+                <section class="create-task-section">
+                    <h2>Create New Task</h2>
+                    <form id="createTaskForm" class="task-form">
+                        <input type="text" id="taskTitle" placeholder="Task title..." class="input" required>
+                        <textarea id="taskDescription" placeholder="Description (optional)..." class="input textarea"></textarea>
+                        <div class="date-time-group">
+                            <input type="date" id="taskDate" class="input">
+                            <input type="time" id="taskTime" class="input">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Task</button>
+                        <p class="form-message" id="createTaskMessage"></p>
+                    </form>
+                </section>
+
+                <!-- Tasks List -->
+                <section class="tasks-section">
+                    <div class="section-header">
+                        <h2>Your Tasks</h2>
+                        <div class="filter-buttons">
+                            <button id="filterAll" class="filter-btn active">All</button>
+                            <button id="filterPending" class="filter-btn">Pending</button>
+                            <button id="filterCompleted" class="filter-btn">Completed</button>
+                        </div>
+                    </div>
+                    <div id="tasksList" class="tasks-grid">
+                        <!-- Tasks will be populated here -->
+                    </div>
+                    <p id="noTasksMessage" class="no-tasks">No tasks yet. Create your first task above! 🎉</p>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="spinner" style="display:none;">
+        <div class="spinner-circle"></div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
